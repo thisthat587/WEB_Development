@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Events</title>
+</head>
+
+<body>
+    <ul id="images">
+        <li><img width="200px" id="photoshop"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/800px-Adobe_Photoshop_CC_icon.svg.png"
+                alt=""></li>
+
+        <li><img width="200px" id="river" src="https://d3nn873nee648n.cloudfront.net/1200x1800-new/100175/ZM1019059.jpg"
+                alt=""></li>
+
+        <li><img width="200px" id="owl"
+                src="https://images.pexels.com/photos/86596/owl-bird-eyes-eagle-owl-86596.jpeg?cs=srgb&dl=pexels-pixabay-86596.jpg&fm=jpg"
+                alt=""></li>
+
+        <li><img width="200px" id="prayer" src="https://d3nn873nee648n.cloudfront.net/900x600/20566/300-SM1057254.jpg"
+                alt=""></li>
+
+        <li><a href="https://google.com" id="google">google</a></li>
+    </ul>
+</body>
+<script>
+    const images = document.getElementById('images')
+    images.addEventListener('click', function(e){
+        alert("ul clicked")
+        console.log(e);
+    })
+    const owl = document.getElementById('owl')
+    owl.addEventListener('click', function(e){
+        alert("Owl clicked")
+        e.stopPropagation();
+        console.log(e);
+    })
+
+    // e : type, tmestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    //altkeyy, ctrlkey,shiftkey,keyCode
+
+</script>
+
+</html>

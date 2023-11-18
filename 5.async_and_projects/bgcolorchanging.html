@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>chai aur javascript</h1>'
+    <button id="stop">stop</button>
+    <button id="start">start</button>
+</body>
+<!-- <script>
+
+    const saypiyush = function () {
+        console.log("piyush")
+    }
+
+    const changeh1text = function () {
+        document.querySelector('h1').innerHTML = "Code aur piyush"
+    }
+
+    const functions = [
+        saypiyush,
+        changeh1text
+    ]
+    const changeme = setTimeout(functions[1], 2000);
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeme);
+        console.log("stopped");
+    })
+
+</script> -->
+<script>
+    let i = 0;
+    const colors = ["red", "white", 'blue', 'purple', 'pink', 'green', 'yellow', 'black', 'grey', 'brown', "aliceblue"]
+    const stopp = document.querySelector('#stop')
+    const start = document.querySelector('#start')
+    let intervalid;
+
+    const startfun = function () {
+        intervalid = setInterval(function () {
+            document.querySelector('body').style.backgroundColor = colors[i++]
+            if (i === colors.length) {
+                i = 0;
+            }
+        }, 1000)
+    }
+
+    const stopfun = function () {
+        clearInterval(intervalid);
+        intervalid = null;
+    }
+
+    start.addEventListener('click', startfun)
+    stopp.addEventListener('click', stopfun)
+</script>
+
+</html>
