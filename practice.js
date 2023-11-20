@@ -1,14 +1,17 @@
-// You have an array of names and you want to create a new array that contains a modified version of each name. The modified version should have an exclamation mark added at the end of each name. Implement a function addExclamation that takes an array of names as input and returns a new array with modified names.
-let names = ["Piyush", "anand", "pankaj", "badal"];
+// const person = 
+//     { 
+//     fname: "John",
+//     lname: "Doe", 
+//     age: 25 
+//     };
 
-function addExclamation(names){
-    let new_names=[];
-    names.forEach((name,index) => {
-        new_names.push(`${name}!`);
-    });
-    return new_names;
+console.clear();
+const person=["piyush","anand","pankaj","ashish"];
+for(const name in person){
+    console.log(name)
 }
-
-let modified_name=addExclamation(names);
-console.log(modified_name);
-console.log(names);
+console.log("\nOF\n")
+const keys=["a","s","f","r"];
+for(const value of person){
+    console.log(value);
+}
