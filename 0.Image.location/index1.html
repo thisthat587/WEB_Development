@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="myImage" src="WhatsApp Image 2023-11-27 at 17.48.59_f3694edd.jpg" alt="freefire">
+</body>
+<script>
+    const image = document.getElementById('myImage');
+
+    image.addEventListener('click', (event) => {
+        const x = event.offsetX;
+        const y = event.offsetY;
+
+        console.log(`Mouse clicked at x: ${x}, y: ${y}`);
+    });
+
+</script>
+
+</html>

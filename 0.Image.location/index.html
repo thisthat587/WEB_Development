@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="originalImageCanvas"></canvas>
+    <div id="image-display"></div>
+    <script>
+        const originalImage = new Image();
+        const originalImageCanvas = document.getElementById('originalImageCanvas');
+        const imageDisplay = document.getElementById('image-display');
+        let x = 49;
+        const y = [283, 374, 470, 558, 650, 335, 415, 500, 580, 660];
+        let wide = 640;
+        let depth = 90;
+        originalImage.onload = function () {
+            originalImageCanvas.width = originalImage.width;
+            originalImageCanvas.height = originalImage.height;
+            originalImageCanvas.getContext('2d').drawImage(originalImage, 0, 0);
+
+            y.forEach((value) => {
+                if (value === 335) {
+                    x = 705;
+                    wide = 500;
+                    depth = 75;
+                    console.log("reached");
+                }
+                // Define the cropping region
+                const cropX = x; // Top-left corner X coordinate
+                const cropWidth = wide; // Width of the cropping region
+                const cropHeight = depth; // Height of the cropping region
+                const cropY = value; // Top-left corner Y coordinate
+
+                // Crop the image
+                const croppedImageData = originalImageCanvas.getContext('2d').getImageData(cropX, cropY, cropWidth, cropHeight);
+
+                // Create a new Canvas for the cropped image
+                const croppedImageCanvas = document.createElement('canvas');
+                croppedImageCanvas.width = cropWidth;
+                croppedImageCanvas.height = cropHeight;
+                const ctx = croppedImageCanvas.getContext('2d').putImageData(croppedImageData, 0, 0);
+
+
+                // Create an image element from the canvas
+                const croppedImage = new Image();
+                croppedImage.src = croppedImageCanvas.toDataURL(); // Convert canvas to data URL
+
+                // Append the image to the display container
+                imageDisplay.appendChild(croppedImage);
+
+            });
+        };
+
+        // Load the image into the original Canvas
+        originalImage.src = 'WhatsApp Image 2023-11-27 at 17.48.59_f3694edd.jpg'; // Replace with your image URL
+    </script>
+</body>
+
+</html>
