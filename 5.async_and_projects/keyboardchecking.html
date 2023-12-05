@@ -1,57 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keyboard checking</title>
+    <title>Document</title>
     <style>
         table {
             align-items: center;
             justify-content: center;
             height: 100vh;
             display: flex;
-            font-size: 30px;
-            border-collapse: collapse;
-            width: 100%;
         }
-
-        th,
-        td {
-            border: 1px solid rgb(255, 255, 255);
-            padding: 8px;
+        th,td {
+            border: 1px solid;
             text-align: center;
+            font-size: 50px;
         }
     </style>
 </head>
+<body id="keyDetails"  style="background-color: black; color:aliceblue"></body>
 
-<body id="insert" style="color:aliceblue; background-color: black; ">
-
-</body>
 <script>
-    window.addEventListener('keydown', (e) => {
-        for (var i = 0; i < 3; i++) {
-            const insert = document.getElementById('insert')
-            console.log(i);
-            insert.innerHTML = `
-        <div>
-            <table>
+    window.addEventListener('keydown',(e)=>{
+        document.getElementById('keyDetails').innerHTML=
+            `<table>
                 <tr>
-                  <th>key</th>
-                  <th>keycode</th>
-                  <th>code</th>
+                    <td>Key</td>
+                    <td>Key Code</td>
+                    <td>Code</td>
                 </tr>
                 <tr>
-                  <td>${e.key === " " ? "Space" : e.key}</td>
-                  <td>${e.keyCode}</td>
-                  <td>${e.code}</td>
+                    <td>${e.key===' '? "space": e.key}</td>
+                    <td>${e.keyCode}</td>
+                    <td>${e.code}</td>
                 </tr>
-              </table>
-        </div>
-        
-        `
-        }
+            </table>`;
     })
 </script>
-
 </html>
