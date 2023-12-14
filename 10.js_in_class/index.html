@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document object Demo</title>
+    <script>
+        function test() {
+            const txtNum =document.getElementById('txtNum').value;
+            if(txtNum){
+                alert("You have entered : "+ txtNum);
+            }
+            else{
+                alert("Please enter any Number...")
+                document.getElementById('txtNum').focus();
+                document.getElementById('txtNum').style.borderColor="red";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1 align="center">Document object Demo</h1>
+    <h3>
+        Create a simple calculator which help 
+    </h3>
+    <center>Enter a Number : <input type="text" id="txtNum"><br><br>
+        <input type="button" value="Click Me" onclick="test()">
+    </center>
+</body>
+
+</html>
