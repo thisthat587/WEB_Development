@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
         var w;
-        function opens(){
-            w=window.open("vvit.org","VVIT","width=400,height=300,resizable=0,location=false")
+        function opens() {
+            w = window.open("https://vvit.org", "VVIT", "width=400,height=300,resizable=0,location=false");
+            // window.open("url","title","Specification");
         }
-        function closed(){
-            w=window.close("vvit.org","VVIT","width=400,height=300,resizable=0,location=false")
+        function closed() {
+            w = window.close("vvit.org", "VVIT", "width=400,height=300,resizable=0,location=false");
         }
     </script>
 </head>
+
 <body>
     <input type="button" value="Open Window" onclick="opens()">
     <input type="button" value="Close Window" onclick="closed()">
 </body>
+
 </html>
