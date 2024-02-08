@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +12,22 @@
             height: 100vh;
             display: flex;
         }
-        th,td {
+
+        th,
+        td {
+            border-collapse: collapse;
             border: 1px solid;
             text-align: center;
             font-size: 50px;
         }
     </style>
 </head>
-<body id="keyDetails"  style="background-color: black; color:aliceblue"></body>
+
+<body id="keyDetails" style="background-color: black; color:rgb(133, 196, 249)"></body>
 
 <script>
-    window.addEventListener('keydown',(e)=>{
-        document.getElementById('keyDetails').innerHTML=
+    window.addEventListener('keydown', (e) => {
+        document.getElementById('keyDetails').innerHTML =
             `<table>
                 <tr>
                     <td>Key</td>
@@ -30,11 +35,12 @@
                     <td>Code</td>
                 </tr>
                 <tr>
-                    <td>${e.key===' '? "space": e.key}</td>
+                    <td>${e.key === ' ' ? "space" : e.key}</td>
                     <td>${e.keyCode}</td>
                     <td>${e.code}</td>
                 </tr>
             </table>`;
     })
 </script>
+
 </html>
