@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: rgb(47, 46, 46);">
+    <div style="display: flex; justify-content:center; align-items:center; color:aliceblue">
+        <h1>Chat Application</h1>
+    </div>
+    <div id="chatField">
+
+    </div>
+    <div style="display: flex; justify-content:center; align-items:center;">
+        <input style="height:40px; width:350px; border-radius:15px;" type="text" id="message">
+        <button id="sendBtn" style="height: 35px; width:50px; border-radius:25px; font-weight:bold">Send</button>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        const socket = io();
+        const messageInput = document.getElementById('message');
+        const sendBtn = document.getElementById('sendBtn')
+
+        socket.on('message', (message) => {
+            console.log(message);
+            const p = document.createElement('p');
+            const chatField = document.getElementById('chatField');
+            p.innerHTML += message;
+            chatField.appendChild(p);
+        })
+
+        sendBtn.addEventListener('click', (e) => {
+            const message = messageInput.value;
+            socket.emit('message', message);
+        });
+    </script>
+</body>
+
+</html>
