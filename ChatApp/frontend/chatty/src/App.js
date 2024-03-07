@@ -3,7 +3,7 @@ import './App.css';
 import { useState, useEffect } from 'react'
 import io from 'socket.io-client';
 import { nanoid } from 'nanoid';
-const socket = io.connect("http://localhost:5000")
+const socket = io.connect("http://localhost:5000");
 const userName = nanoid(4);
 
 function App() {
@@ -26,24 +26,27 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>chatty app</h1>
+      <header  className="App-header">
+        <div id='box'>
 
-        {chat.map((payload, index) => {
-          return <p key={index}>{payload.message} : <span>id: {payload.userName}</span></p>
-        })}
+          <h1>chatty app</h1>
 
-        <form onSubmit={sendChat}>
-          <input
-            type='text'
-            name='chat'
-            placeholder='send message'
-            value={message}
-            onChange={(e) => {
-              setMessage(e.target.value);
-            }} />
-          <button type='submit'>Send</button>
-        </form>
+          {chat.map((payload, index) => {
+            return <p key={index}>{payload.message} : <span>id: {payload.userName}</span></p>
+          })}
+
+          <form onSubmit={sendChat}>
+            <input
+              type='text'
+              name='chat'
+              placeholder='send message'
+              value={message}
+              onChange={(e) => {
+                setMessage(e.target.value);
+              }} />
+            <button type='submit'>Send</button>
+          </form>
+        </div>
       </header>
     </div>
   );
